@@ -1,0 +1,40 @@
+# Woven defect label tree, version 1.
+# A label is addressed by its full path, e.g. "Defect/Weft/Broken pick".
+# geometry: the shape an annotator must draw for this label
+#   polygon = outline of the defect area
+#   point   = a single marker on the defect
+#   none    = a whole-sample tag, no shape
+version: 1
+released: 2026-05-01
+labels:
+  - name: Normal
+    geometry: none
+    description: No visible defect in the sample.
+  - name: Defect
+    children:
+      - name: Weft
+        children:
+          - name: Broken pick
+            geometry: polygon
+          - name: Double pick
+            geometry: polygon
+          - name: Missing pick
+            geometry: polygon
+      - name: Warp
+        children:
+          - name: Broken end
+            geometry: polygon
+          - name: Float
+            geometry: polygon
+      - name: Stain
+        children:
+          - name: Oil
+            geometry: polygon
+            description: Any oily or greasy stain.
+      - name: Hole
+        geometry: point
+      - name: Slub
+        geometry: point
+      - name: Knot
+        geometry: point
+        deprecated: true

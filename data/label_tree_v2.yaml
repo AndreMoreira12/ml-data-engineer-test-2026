@@ -1,0 +1,49 @@
+# Woven defect label tree, version 2.
+# Changes from version 1:
+#   - "Defect/Stain/Oil" now means dark mineral oil only. Light greasy stains
+#     move to the new label "Defect/Stain/Grease".
+#   - "Defect/Slub" is deprecated and replaced by "Defect/Yarn/Thick place".
+#   - "Defect/Weft/Starting mark" is new.
+#   - "Defect/Knot" is removed.
+version: 2
+released: 2026-07-01
+labels:
+  - name: Normal
+    geometry: none
+    description: No visible defect in the sample.
+  - name: Defect
+    children:
+      - name: Weft
+        children:
+          - name: Broken pick
+            geometry: polygon
+          - name: Double pick
+            geometry: polygon
+          - name: Missing pick
+            geometry: polygon
+          - name: Starting mark
+            geometry: polygon
+      - name: Warp
+        children:
+          - name: Broken end
+            geometry: polygon
+          - name: Float
+            geometry: polygon
+      - name: Stain
+        children:
+          - name: Oil
+            geometry: polygon
+            description: Dark mineral oil stain only.
+          - name: Grease
+            geometry: polygon
+            description: Light greasy stain, previously labelled as Oil.
+      - name: Yarn
+        children:
+          - name: Thick place
+            geometry: point
+            replaces: Defect/Slub
+      - name: Hole
+        geometry: point
+      - name: Slub
+        geometry: point
+        deprecated: true

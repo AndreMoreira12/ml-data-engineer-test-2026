@@ -1,0 +1,12 @@
+label_path,target_samples
+Normal,1500
+Defect/Weft/Broken pick,400
+Defect/Weft/Double pick,250
+Defect/Weft/Missing pick,250
+Defect/Weft/Starting mark,150
+Defect/Warp/Broken end,350
+Defect/Warp/Float,200
+Defect/Stain/Oil,200
+Defect/Stain/Grease,200
+Defect/Yarn/Thick place,250
+Defect/Hole,250
