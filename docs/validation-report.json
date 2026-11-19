@@ -1,0 +1,58 @@
+{
+  "domain": {
+    "valid_versions": 3402,
+    "instances": 3976,
+    "samples": 2658,
+    "training_eligible_samples": 695
+  },
+  "validation": {
+    "source_records": [
+      {
+        "type": "csv",
+        "records": 3882,
+        "passed": 3835,
+        "quarantined": 47
+      },
+      {
+        "type": "jsonl",
+        "records": 3927,
+        "passed": 3483,
+        "quarantined": 444
+      },
+      {
+        "type": "yaml",
+        "records": 2,
+        "passed": 2,
+        "quarantined": 0
+      }
+    ],
+    "quarantine_occurrences_by_reason": {
+      "CONFLICTED_ANCESTOR": 3,
+      "CONFLICTING_EVENT_ID": 12,
+      "CONFLICTING_FRAME_ID": 8,
+      "GEOMETRY_OUT_OF_BOUNDS": 72,
+      "GEOMETRY_TYPE_MISMATCH": 27,
+      "INCONSISTENT_SAMPLE_FRAMES": 19,
+      "INVALID_FRAME_COUNT": 4,
+      "INVALID_FRAME_DIMENSIONS": 39,
+      "INVALID_POLYGON": 56,
+      "NO_FIRST_PASS_ANCESTOR": 3,
+      "SELF_REVIEW": 22,
+      "UNKNOWN_ANNOTATOR": 177,
+      "UNKNOWN_LABEL": 18,
+      "UNKNOWN_OR_INVALID_FRAME": 65
+    },
+    "sample_states": {
+      "conflict": 2,
+      "no_current": 264,
+      "resolved": 2392
+    }
+  },
+  "event_identities": {
+    "stored_occurrences": 3927,
+    "distinct_event_ids": 3831,
+    "distinct_payload_variants": 3837,
+    "repeated_payload_occurrences": 90,
+    "conflicting_event_ids": 6
+  }
+}

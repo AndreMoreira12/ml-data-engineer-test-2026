@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: smartex
+      POSTGRES_USER: smartex
+      POSTGRES_PASSWORD: local-demo
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+      - ./sql/002-annotators.sql:/docker-entrypoint-initdb.d/002-annotators.sql:ro
+      - ./sql/003-frames.sql:/docker-entrypoint-initdb.d/003-frames.sql:ro
+      - ./sql/004-taxonomy.sql:/docker-entrypoint-initdb.d/004-taxonomy.sql:ro
+      - ./sql/005-event-identities.sql:/docker-entrypoint-initdb.d/005-event-identities.sql:ro
+      - ./sql/006-domain.sql:/docker-entrypoint-initdb.d/006-domain.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartex -d smartex"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  pipeline:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://smartex:local-demo@db:5432/smartex
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+volumes:
+  postgres_data:
