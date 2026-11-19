@@ -13,14 +13,6 @@ me. I am submitting this as a partial, AI-assisted exercise, with those limits
 made explicit. The technical descriptions below document the implementation;
 they are not a claim that I wrote or independently verified every part.
 
-| Challenge part | Status |
-| --- | --- |
-| 0: written answers | All six answers drafted in [ANSWERS.md](ANSWERS.md) |
-| 1: Python ingestion | Implemented, including quarantine, current state and validation report |
-| 2: training export | Implemented with manifest, frozen sources and roll-based split |
-| 3: five SQL queries | Incomplete: no `queries.sql`; a coverage view provides one underlying calculation |
-| 4: Python API and Angular/React TypeScript page | Not implemented |
-| 5: provisioned Grafana dashboard | Not implemented; Compose starts only PostgreSQL and ingestion |
 
 ## Run
 
